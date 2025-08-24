@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 import json
 import re
 from pathlib import Path
@@ -52,12 +51,12 @@ def main():
             continue
 
         for name, props in entries.items():
-            # 1) Skip null or non-dict props
+            # Skip null or non-dict props
             if not isinstance(props, dict):
                 print(f"⚠️  Skipping {category}/{name}: entry is null or not an object")
                 continue
 
-            # 2) Skip if no path field
+            # Skip if no path field
             rel_path = props.get("path")
             if not rel_path:
                 print(f"⚠️  Skipping {category}/{name}: no 'path' property")
